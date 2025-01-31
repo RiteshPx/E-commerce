@@ -11,7 +11,6 @@ export const Products = ({ ele }) => {
         dispatch(remove(ele.id))
     }
     const { cart } = useSelector((state) => state);
-    //   const  cart  = useSelector((state) => state.cart);
     return (
         <div>
             <div className='text-base font-bold'>{ele.title.substring(0, 18)}</div>
