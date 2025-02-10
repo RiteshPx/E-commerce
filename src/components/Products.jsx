@@ -21,7 +21,7 @@ export const Products = ({ ele }) => {
                 </p>
             </div>
             <div className="px-5 pt-4 pb-2 flex justify-evenly items-center">
-                <span className="font-extrabold text-blue-600">${ele.price}</span>
+                <span className="font-extrabold text-blue-600">₹{ele.price*60}</span>
                 {
                     cart.some(item => item.id === ele.id) ? (
                         <button className="bg-red-500 hover:bg-red-700 text-white font-medium py-1 px-2 rounded" onClick={removeFromCart}>

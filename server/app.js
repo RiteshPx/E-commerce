@@ -7,10 +7,10 @@ app.use(cors({
     credentials: true,
   }));
   
-var payment = require('./router/payment');
+
 // Middleware to parse JSON data
 app.use(express.json());
-
+var payment = require('./router/payment'); // Import the router module
 app.use('/',payment);
 
 

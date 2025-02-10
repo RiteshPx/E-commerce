@@ -7,16 +7,13 @@ const crypto = require('crypto');
 exports.capturePayment = async (req, res) => {
     try {
         //fetch 
-        const courseID = '102f'; //create order
-        const amount = 600;
+        const {amount} = req.body; 
         const currency = 'INR';
         const options = {
             amount: amount * 100,
             currency,
             receipt: Math.random(Date.now()).toString(),
-            notes: {
-                courseId: courseID,
-            }
+           
         }
         try {
             //initiate the payment using razorpay
@@ -27,7 +24,6 @@ exports.capturePayment = async (req, res) => {
             res.status(200).json({
                 success: true,
                 message: "Data for all courses are fetching successfully",
-                courseID,
                 orderId: paymentResponse.id,            //order id of payment
                 currency: paymentResponse.currency,
                 amount: paymentResponse.amount,
