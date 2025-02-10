@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Products } from '../components/Products';
+import banner from '../images/banner.jpg'
 
 export const Home = () => {
   const API = "https://fakestoreapi.com/products"
@@ -22,17 +23,20 @@ export const Home = () => {
   }, [])
 
   return (
-
-    <div className='flex justify-center'>
-      <div className='flex flex-wrap space-x-10 space-y-5 border-spacing-4  justify-evenly mt-4'>
-        {
-          data.map((ele, indx) => (
-            <div key={indx} className='w-48 h-96 shadow-2xl p-3 rounded-lg mt-8'>
-             <Products ele={ele} indx={indx}/>
-            </div>
-          ))
-        }
+    <div className=' min-h-screen bg-yellow-500'>
+      <header className='w-screen  bg-black'>
+        <img src={banner} alt="E-commerce Banner" className='object-cover w-full' />
+      </header>   
+    
+      <div className='flex justify-center bg- min-h-screen p-5'>
+        <div className='flex flex-wrap space-x-10 space-y-5 justify-evenly mt-4 mx-6'>
+          {
+            data.map((ele, indx) => (
+              <Products ele={ele} indx={indx} />
+            ))
+          }
+        </div>
       </div>
-    </div >
+    </div>
   )
 }
